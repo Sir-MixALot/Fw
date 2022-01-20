@@ -1,6 +1,6 @@
 <?php 
 
-namespace core;
+namespace Fw\core;
 
 
 class Config
