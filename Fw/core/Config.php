@@ -1,8 +1,8 @@
 <?php 
 
-namespace Fw\core;
+namespace Fw\Core;
 
-
+use Fw\Core\Application;
 class Config
 {
 
@@ -10,7 +10,6 @@ class Config
     {
         $config = require_once('../config.php');
         $arrPath = explode('/', $path);
-        // echo $config[$arrPath[0]][$arrPath[1]];
         
     }   
 }

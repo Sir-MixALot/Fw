@@ -1,6 +1,6 @@
 <?php
 
-namespace Fw\core;
+namespace Fw\Core;
 
 class Application
 {
