@@ -2,8 +2,6 @@
 
 namespace Fw\Core;
 
-use Fw\Core\Application;
-
 class Config
 {
 
@@ -14,5 +12,3 @@ class Config
         
     }   
 }
-
-Config::getConfig('db/host');
