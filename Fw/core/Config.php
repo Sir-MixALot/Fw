@@ -3,6 +3,7 @@
 namespace Fw\Core;
 
 use Fw\Core\Application;
+
 class Config
 {
 
