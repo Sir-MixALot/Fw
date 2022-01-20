@@ -1,6 +1,6 @@
 <?php
 
-namespace core;
+namespace Fw\core;
 
 class Application
 {
@@ -9,7 +9,6 @@ class Application
     private $pager = null;
     private $template = null;
     private static $instance = null;
-    // protected $test;
 
     private function __construct()
     {
@@ -30,10 +29,5 @@ class Application
     {
         return static::$instance ?? (static::$instance = new static());
     }
-
-    // public function getTest($val)
-    // {
-    //     $this->test = $val;
-    // }
 
 }
