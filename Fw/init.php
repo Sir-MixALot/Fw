@@ -2,20 +2,16 @@
 
 use Fw\Core\Application;
 
+define("IS_CONNECTED_CORE", true);
+
 spl_autoload_register(function($class) {
-    $classPieces = explode('\\', $class);
-    $path = '/'.$classPieces[0].'/';
+    $classPath = $_SERVER['DOCUMENT_ROOT'] . '/' . str_replace('\\', '/', $class) . '.php';
 
-    for($i = 1; $i < count($classPieces) - 1; $i++){
-        $path .= lcfirst($classPieces[$i]) . '/';
-    }
-
-    $path .= end($classPieces) . '.php';
-    $DIR = $_SERVER['DOCUMENT_ROOT'];
-
-    if (file_exists($DIR . $path)) {  
-        require $DIR . $path;
+    if (file_exists($classPath)) {  
+        require $classPath;
     }
 });
 
 session_start();
+
+$app = Application::getInstance();

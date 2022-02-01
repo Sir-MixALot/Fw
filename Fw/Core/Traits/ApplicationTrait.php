@@ -1,13 +1,10 @@
 <?php
 
-namespace Fw\Core;
+namespace Fw\Core\Traits;
 
-class Application
+trait ApplicationTrait
 {
-
-    private $__components = [];
-    private $pager = null;
-    private $template = null;
+    
     private static $instance = null;
 
     private function __construct()
@@ -29,5 +26,4 @@ class Application
     {
         return static::$instance ?? (static::$instance = new static());
     }
-
 }
