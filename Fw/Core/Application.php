@@ -8,7 +8,7 @@ use Fw\Core\Page;
 class Application
 {
 
-    use Traits\ApplicationTrait;
+    use Traits\Singleton;
 
     private $__components = [];
     public $pager;
@@ -20,13 +20,13 @@ class Application
         $this->template = Config::getConfig('template/id');
     }
     
-    public function getHeader()
+    public function header()
     {
         $this->startBuffer();
         include($_SERVER['DOCUMENT_ROOT'] . '/Fw/Templates/' . ucfirst($this->template) . '/header.php');
     }
 
-    public function getFooter()
+    public function footer()
     {
         include($_SERVER['DOCUMENT_ROOT'] . 'Fw/Templates/' . ucfirst($this->template) . '/footer.php');
         echo $this->endBuffer();
@@ -39,10 +39,10 @@ class Application
 
     public function endBuffer()
     {
-        $links = $this->pager->getAllReplace();
+        $macrosAndReplacement = $this->pager->getAllReplace();
         $content = ob_get_contents();
 
-        foreach($links as $macros=>$replacement){
+        foreach($macrosAndReplacement as $macros=>$replacement){
             if(is_array($replacement)){
                 $content = str_replace($macros, implode($replacement), $content);
             }else{
@@ -58,6 +58,7 @@ class Application
     public function restartBuffer()
     {
         ob_get_clean();
+        $this->startBuffer();
     }
 
     

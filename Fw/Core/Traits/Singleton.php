@@ -2,7 +2,7 @@
 
 namespace Fw\Core\Traits;
 
-trait ApplicationTrait
+trait Singleton
 {
     
     private static $instance = null;

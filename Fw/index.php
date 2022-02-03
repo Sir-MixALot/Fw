@@ -1,7 +1,8 @@
 <?php
 
 require('init.php');
-$app->getHeader();
+$app->header();
+$app->pager->addString('<title>Stage 2</title>');
 ?>
 
 <pre>
@@ -24,10 +25,26 @@ $app->getHeader();
     1)Написал методы showProperty и setProperty в классе Page;
 
     ------01.02.2022------
-    1)Дописал методы для работы с Property в классе Page;    
+    1)Дописал методы для работы с Property в классе Page;
+    
+    ------02.02.2022------
+    1)Переименовал trait ApplicationTrait в Singleton;
+    2)Переписал метод restartBuffer класса Application;
+
+    ------03.02.2022------
+    1)Изменил имя переменной в методе endBuffer класса Application;
+    2)Добавлена проверка на подключение ядра в header и footer;
+    3)Переписал метод getConfig в классе Config;
+    4)Переписал добавление метатегов в методе addString класса Page;
+    5)Переименовал свойство класса Page customTags в customReplacements;
+    6)Переписал методы добавления ссылок для стилей css и js скриптов в методах addJs, addCss в классе Page;
+    7)Добавил три вспомогательных метода для получения макросов и их замен для js, css и meta tags в классе Page;
+    8)Установил заголовок страницы через написанные методы добавления метатегов в head страницы;
+    9)Переименовал методы getHeader и getFooter в классе Application;
+    10)
 
 </pre>
 <?php
-    $app->pager->setProperty('h1' , 'Changelist');
+
     $app->pager->getAllReplace();
-    $app->getFooter();
+    $app->footer();

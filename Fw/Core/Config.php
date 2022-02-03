@@ -2,6 +2,8 @@
 
 namespace Fw\Core;
 
+use DatePeriod;
+
 define('CONFIG', require_once('config.php'));
 
 class Config
@@ -10,6 +12,10 @@ class Config
     public static function getConfig(string $path)
     {
         $arrPath = explode('/', $path);
-        return CONFIG[$arrPath[0]][$arrPath[1]];
+        $config = CONFIG;
+        foreach($arrPath as $pathPiece){
+            $config = $config[$pathPiece];
+        }
+        return $config;
     }
 }

@@ -1,10 +1,15 @@
-<?php require('init.php');?>
+<?php
+
+require('init.php');
+if (!defined('FW_CORE_INCLUDED') || FW_CORE_INCLUDED !== true) die();
+?>
+
 <html>
     
     <head>
     <?php $app->pager->showHead(); ?>
    
-        <title>Stage 2</title>
+        
     </head>
     <body>
     

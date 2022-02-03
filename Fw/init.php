@@ -2,7 +2,7 @@
 
 use Fw\Core\Application;
 
-define("IS_CONNECTED_CORE", true);
+define("FW_CORE_INCLUDED", true);
 
 spl_autoload_register(function($class) {
     $classPath = $_SERVER['DOCUMENT_ROOT'] . '/' . str_replace('\\', '/', $class) . '.php';
