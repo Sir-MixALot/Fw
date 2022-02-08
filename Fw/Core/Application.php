@@ -39,16 +39,9 @@ class Application
 
     public function endBuffer()
     {
-        $macrosAndReplacement = $this->pager->getAllReplace();
         $content = ob_get_contents();
-
-        foreach($macrosAndReplacement as $macros=>$replacement){
-            if(is_array($replacement)){
-                $content = str_replace($macros, implode($replacement), $content);
-            }else{
-                $content = str_replace($macros, $replacement, $content);
-            }
-        }
+        $macrosAndReplacement = $this->pager->getAllReplace();
+        $content = str_replace(array_keys($macrosAndReplacement), $macrosAndReplacement, $content);
 
         $this->restartBuffer();
 
@@ -57,7 +50,7 @@ class Application
 
     public function restartBuffer()
     {
-        ob_get_clean();
+        ob_end_clean();
         $this->startBuffer();
     }
 

@@ -56,43 +56,54 @@ class Page
 
     public function getAllReplace()
     {
-        $outputMacros = [];
-        $outputMacros += $this->getJsReplacement();
-        $outputMacros += $this->getCssReplacement();
-        $outputMacros += $this->getTagReplacement();
-        
+        $outputMacros =[
+            $this->getMacros('JS') => $this->getJsReplacement(),
+            $this->getMacros('CSS') => $this->getCssReplacement(),
+            $this->getMacros('TAG') => $this->getTagReplacement()
+        ];
+
         foreach ($this->customMacros as $macros){
             $macrosPieces = explode('_', trim($macros, '#'));
             $outputMacros[$macros] = $this->getProperty(end($macrosPieces));
         }
+        
         return $outputMacros;
         
     }
 
     public function getJsReplacement()
     {
-        $outputJs = [];
-        foreach($this->jsLinks as $jsLink){
-            $outputJs[$this->getMacros('JS')][] = '<script src=' . $jsLink . '></script>';
+        $outputJs = '';
+        if(!empty($this->jsLinks)){
+            foreach($this->jsLinks as $jsLink){
+                $outputJs .= '<script src=' . $jsLink . '></script>';
+            }
         }
-        return $outputJs;
+
+        return $outputJs;    
     }
 
     public function getCssReplacement()
     {
-        $outputCss = [];
-        foreach($this->cssLinks as $cssLink){
-            $outputCss[$this->getMacros('CSS')][] = '<link rel="stylesheet" type="text/css" href="' . $cssLink . '">';
+        $outputCss = '';
+        if(!empty($this->cssLinks)){
+            foreach($this->cssLinks as $cssLink){
+                $outputCss .= '<link rel="stylesheet" type="text/css" href="' . $cssLink . '">';
+            }
         }
+        
         return $outputCss;
     }
 
     public function getTagReplacement()
     {
-        $outputTags = [];
-        foreach($this->tagLinks as $tagLink){
-            $outputTags[$this->getMacros('TAG')][] = $tagLink;
+        $outputTags = '';
+        if(!empty($this->tagLinks)){
+            foreach($this->tagLinks as $tagLink){
+                $outputTags .= $tagLink;
+            }
         }
+        
         return $outputTags;
     }
 

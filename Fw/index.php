@@ -30,7 +30,7 @@ $app->pager->addString('<title>Stage 2</title>');
     ------02.02.2022------
     1)Переименовал trait ApplicationTrait в Singleton;
     2)Переписал метод restartBuffer класса Application;
-
+    
     ------03.02.2022------
     1)Изменил имя переменной в методе endBuffer класса Application;
     2)Добавлена проверка на подключение ядра в header и footer;
@@ -41,10 +41,11 @@ $app->pager->addString('<title>Stage 2</title>');
     7)Добавил три вспомогательных метода для получения макросов и их замен для js, css и meta tags в классе Page;
     8)Установил заголовок страницы через написанные методы добавления метатегов в head страницы;
     9)Переименовал методы getHeader и getFooter в классе Application;
-    10)
+
+    ------08.02.2022------
+    1)Изменил запись макросов и значений для замены для скриптов JS, CSS стилей и метатегов;
+    2)Переписал метод замены макросов на значения endBuffer в классе Application;
 
 </pre>
 <?php
-
-    $app->pager->getAllReplace();
     $app->footer();
