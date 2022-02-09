@@ -1,9 +1,7 @@
 <?php 
 
 return [
-    'db' => [
-        'host' => 'local',
-        'user' => 'admin',
-        'password' => 'admin123'
+    'template' => [
+        'id' => 'default'
     ]
 ];
