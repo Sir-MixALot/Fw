@@ -1,8 +1,24 @@
 <?php
+ini_set('error_reporting', E_ALL);
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+
 
 require('init.php');
 $app->header();
 $app->pager->addString('<title>Stage 2</title>');
+try{
+    $app->includeComponent(
+        '\Fw\Components\Element:CustomList',
+        'default',
+        [
+            'List of somethings' => ['First item', 'Second item', 'Third item']
+        ]
+    );
+    
+}catch (Exception $e){
+    echo "<h1>", $e->getMessage(), "</h1>", "\n";
+}
 ?>
 
 <pre>
@@ -46,6 +62,17 @@ $app->pager->addString('<title>Stage 2</title>');
     1)Изменил запись макросов и значений для замены для скриптов JS, CSS стилей и метатегов;
     2)Переписал метод замены макросов на значения endBuffer в классе Application;
 
+    ------09.02.2022------
+    1)Начал третий этап;
+    2)Создал класс Dictionary, реализующий интерфейсы IteratorAggregate, ArrayAccess, Countable;
+    3)Создал классы Server и Request, наследуемые от Dictionary;
+    4)Добавил создание экземпляров классов Server и Request при инициализации класса Application;
+
+    ------10.02.2022------
+    1)
+
 </pre>
 <?php
-    $app->footer();
+    
+$app->footer();
+    
