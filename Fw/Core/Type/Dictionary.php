@@ -11,12 +11,27 @@ use Traversable;
 class Dictionary implements IteratorAggregate, ArrayAccess, Countable
 {
 
-    public $container;
+    public $container = [];
+
+    public function __construct($inParams)
+    {
+        $this->setContainer($inParams);
+    }
+
+    public function setContainer($inParams)
+    {
+        $this->container = $inParams;
+    }
+
+    public function getContainer()
+    {
+        return $this->container;
+    }
 
     public function getIterator(): Traversable
     {
         return new ArrayIterator($this);
-    }
+    }   
 
     public function offsetSet($offset, $value): void
     {

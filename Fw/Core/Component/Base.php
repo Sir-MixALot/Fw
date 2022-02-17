@@ -13,10 +13,12 @@ abstract class Base
     protected $template;
     public string $__path;
 
-    public function __construct($componentId, $templateId)
+    public function __construct($namespace, $componentId, $templateId, $params)
     {
         $this->id = $componentId;
-        $this->template = new Template($templateId, $this );
+        $this->__path = str_replace('\\', '/', $namespace) . '/' . $this->id;
+        $this->params = $params;
+        $this->template = new Template($templateId, $this->__path, $this);
     }
 
     abstract protected function executeComponent();

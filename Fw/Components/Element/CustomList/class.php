@@ -7,10 +7,8 @@ use Fw\Core\Component\Base;
 class ListComponent extends Base
 {
 
-    public function __construct($componentId, $templateId, $params){
-        $this->__path = __DIR__;
-        $this->params = $params;
-        parent::__construct($componentId, $templateId);
+    public function __construct($namespace, $componentId, $templateId, $params){
+        parent::__construct($namespace, $componentId, $templateId, $params);
     }
 
     public function executeComponent()
