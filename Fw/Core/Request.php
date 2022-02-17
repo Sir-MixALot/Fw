@@ -6,9 +6,9 @@ use Fw\Core\Type\Dictionary;
 
 class Request extends Dictionary
 {
-    public function __construct(array $request)
+    public function __construct()
     {
-        parent::__construct($request);
+        parent::__construct($_REQUEST);
         return $this->getContainer();
     }
 }

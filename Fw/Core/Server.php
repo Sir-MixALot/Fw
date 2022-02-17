@@ -7,9 +7,9 @@ use Fw\Core\Type\Dictionary;
 class Server extends Dictionary
 {
 
-    public function __construct(array $server)
+    public function __construct()
     {
-        parent::__construct($server);
+        parent::__construct($_SERVER);
         return $this->getContainer();
     }
 }

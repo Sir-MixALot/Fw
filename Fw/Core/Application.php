@@ -23,8 +23,8 @@ class Application
     {
         $this->pager = Page::getInstance();
         $this->template = Config::getConfig('template/id');
-        $this->request = new Request($_REQUEST);
-        $this->server = new Server($_SERVER);
+        $this->request = new Request();
+        $this->server = new Server();
     }
     
     public function header()
