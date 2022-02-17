@@ -6,6 +6,7 @@ class Page
 {
 
     use Traits\Singleton;
+    
     private $salt = '15654987';
     public $cssLinks = [];
     public $jsLinks = [];
