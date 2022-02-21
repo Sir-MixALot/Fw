@@ -18,16 +18,18 @@ class Page
 
     public function addJs(string $src)
     {
-        if (!isset($this->jsLinks[crypt($src, $this->salt)])) {
-            $this->jsLinks[crypt($src, $this->salt)] = $src;
+        if (!isset($this->jsLinks[sha1($src . $this->salt)])) {
+            $this->jsLinks[sha1($src . $this->salt)] = $src;
         }
     }
 
     public function addCss(string $link)
     {
-        if (!isset($this->cssLinks[crypt($link, $this->salt)])) {
-            $this->cssLinks[crypt($link, $this->salt)] = $link;
+        if (!isset($this->cssLinks[sha1($link . $this->salt)])) {
+            $this->cssLinks[sha1($link . $this->salt)] = $link;
         }
+        
+        
     }
 
     public function addString(string $str)  

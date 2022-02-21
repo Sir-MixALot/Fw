@@ -1,4 +1,5 @@
 <?php
+
 ini_set('error_reporting', E_ALL);
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -6,6 +7,8 @@ ini_set('display_startup_errors', 1);
 
 require('init.php');
 $app->header();
+$app->pager->addCss('/Fw/Templates/Default/style.css');
+
 $app->pager->addString('<title>Stage 2</title>');
 try{
     $app->includeComponent(
@@ -15,14 +18,212 @@ try{
             'List of somethings' => ['First item', 'Second item', 'Third item']
         ]
     );
+
+    $app->includeComponent(
+        '\Fw\Components\Interfaces:Form',
+        'default',
+        [
+            'additional_class' => 'window--full-form', 
+            'attr' => [ 
+                'data-form-id' => 'form-123'
+            ],
+            'method' => 'post',
+            'action' => '', 
+            'elements' => [ 
+                [
+                    'type' => 'multiple-text',
+                    'name' => 'multiple-text',
+                    'additional_class' => 'form-group',
+                    'attr' => [
+                        'data-id' => '18'
+                    ],
+                    'fields' => [
+                        [
+                            'type' => 'text',
+                            'name' => 'login',
+                            'title' => 'Name',
+                            'default' => 'Enter your name',
+                            'additional_class' => 'form-control',
+                            'attr' => [
+                                'data-id' => '191'
+                            ]
+                        ],
+                        [
+                            'type' => 'text',
+                            'name' => 'login',
+                            'title' => 'Surname',
+                            'default' => 'Enter your surname',
+                            'additional_class' => 'form-control',
+                            'attr' => [
+                                'data-id' => '192'
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    'type' => 'password',
+                    'name' => 'password',
+                    'title' => 'Password',
+                    'additional_class' => 'form-control',
+                    'attr' => [
+                        'data-id' => '193'
+                    ]
+                ],
+                [
+                    'type' => 'number',
+                    'name' => 'number',
+                    'additional_class' => 'form-control number',
+                    'attr' => [
+                        'data-id' => '19'
+                    ],
+                    'title' => 'Choose a number',
+                    'min' => '10',
+                    'max' => '100'
+                ],
+                [
+                    'type' => 'select',
+                    'name' => 'server',
+                    'additional_class' => 'form-control',
+                    'attr' => [
+                        'data-id' => '20'
+                    ],
+                    'title' => 'Choose server',
+                    'list' => [
+                        [
+                            'title' => 'Onliner',
+                            'value' => 'onliner',
+                            'additional_class' => 'form-control',
+                            'attr' => [
+                                'data-id' => '188'
+                            ],
+                            'selected' => true
+                        ],
+                        [
+                            'title' => 'TutBy',
+                            'value' => 'tut',
+                            'additional_class' => 'form-control',
+                            'attr' => [
+                                'data-id' => '189'
+                            ],
+                        ]
+                    ]
+                ],
+                [
+                    'type' => 'multiple-select',
+                    'name' => 'Car',
+                    'multiple' => 'multiple',
+                    'size' => '2',
+                    'additional_class' => 'form-control',
+                    'attr' => [
+                        'data-id' => '21'
+                    ],
+                    'title' => 'Choose car',
+                    'list' => [
+                        [
+                            'title' => 'Tesla',
+                            'value' => 'tesla',
+                            'additional_class' => 'form-control',
+                            'attr' => [
+                                'data-id' => '211'
+                            ],
+                            'selected' => true
+                        ],
+                        [
+                            'title' => 'Lamborghini',
+                            'value' => 'lambo',
+                            'additional_class' => 'form-control',
+                            'attr' => [
+                                'data-id' => '212'
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    'type' => 'multiple-checkbox',
+                    'name' => 'multiple-checkbox',
+                    'title' => 'Choose',
+                    'additional_class' => 'multiple-checkbox',
+                    'attr' => [
+                        'data-id' => '23'
+                    ],
+                    'boxes' => [
+                        [
+                            'type' => 'checkbox',
+                            'name' => 'first',
+                            'additional_class' => 'form-check-input',
+                            'value' => 'first',
+                            'attr' => [
+                                'data-id' => '201'
+                            ],
+                            'title' => 'First'
+                        ],
+                        [
+                            'type' => 'checkbox',
+                            'name' => 'second',
+                            'additional_class' => 'form-check-input',
+                            'value' => 'second',
+                            'attr' => [
+                                'data-id' => '202'
+                            ],
+                            'title' => 'Second'
+                        ]
+                    ]
+                ],
+                [
+                    'type' => 'multiple-radio',
+                    'name' => 'multiple-radio',
+                    'title' => 'Choose',
+                    'additional_class' => 'multiple-radio',
+                    'attr' => [
+                        'data-id' => '25'
+                    ],
+                    'radios' => [
+                        [
+                            'type' => 'radio',
+                            'name' => 'form-radio',
+                            'additional_class' => 'form-check-input',
+                            'value' => 'first',
+                            'attr' => [
+                                'data-id' => '251'
+                            ],
+                            'title' => 'First'
+                        ],
+                        [
+                            'type' => 'radio',
+                            'name' => 'form-radio',
+                            'additional_class' => 'form-check-input',
+                            'value' => 'second',
+                            'attr' => [
+                                'data-id' => '252'
+                            ],
+                            'title' => 'Second'
+                        ]
+                    ]
+                ],
+                [
+                    'type' => 'textarea',
+                    'name' => 'textarea',
+                    'additional_class' => 'form-control',
+                    'attr' => [
+                        'data-id' => '26'
+                    ],
+                    'title' => 'Introduce yourself',
+                    'min' => '0',
+                    'max' => '250',
+                    'placeholder' => 'Write something abot yourself:',
+                    'rows' => '5',
+                    'cols' => '40'
+                ],
+            ]
+        ]
+    );
     
 }catch (Exception $e){
     echo "<h1>", $e->getMessage(), "</h1>", "\n";
 }
 ?>
 
-<pre>
-
+<pre id="report">
     ------21.01.2022------
     1)Добавлены footer и header в шаблон страницы;
     2)Добавлена буферизация вывода шаблона;
@@ -82,6 +283,15 @@ try{
     ------16.02.2022------
     1)Переработал метод includeComponent класса Application;
     2)Переработал методы класса ListComponent для реализации компонента;
+
+    ------18.02.2022-----
+    1)Написан и добавлен комплексный компонент form;
+    2)Описаны и добавлены мини-компоненты для комплексного компонента form;
+
+    ------21.02.2022------
+    1)Добавлен bootstrap;
+    2)Оформлен header и footer;
+    3)Написаны стили для компонентов;
 
 </pre>
 <?php

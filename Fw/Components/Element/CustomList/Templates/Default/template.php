@@ -3,12 +3,12 @@
 if (!defined('FW_CORE_INCLUDED') || FW_CORE_INCLUDED !== true) die();
 ?>
 
-<div class="custom-list">
-    <dl>
+<div class="container list" id="custom-list">
+    <dl class="list-group">
         <?php foreach($result['list'] as $listHeader=>$items): ?>
-            <dt><?= $listHeader; ?></dt>
+            <dt class="list-group-item active"><?= $listHeader; ?></dt>
                 <?php foreach($items as $item): ?>
-                    <dd><?= $item; ?></dd>
+                    <dd class="list-group-item"><?= $item; ?></dd>
                 <?php endforeach; ?>
         <?php endforeach; ?>
     </dl>   

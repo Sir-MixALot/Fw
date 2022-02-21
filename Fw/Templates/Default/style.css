@@ -1,0 +1,26 @@
+.navbar{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 99;
+}
+
+.bg-light{
+    background-color: blanchedalmond!important;
+}
+
+.navbar-brand{
+    padding-left: 20px;
+}
+
+pre{
+    margin-top: 10%;
+    text-align: center;
+}
+
+.footer-copyright{
+    background-color: rgb(53, 53, 53);
+    color: azure;
+    margin-bottom: 0;
+    font-size: large;
+}
