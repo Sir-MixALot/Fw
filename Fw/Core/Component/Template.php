@@ -18,8 +18,8 @@ class Template
 
         $this->component = $componentObj;
         $this->id = ucfirst($templateId);
-        $this->__path = $app->getServer()->container['DOCUMENT_ROOT'] . $componentPath . '/Templates/' . $this->id . '/';
-        $this->__relativePath = $componentPath . '/Templates/' . $this->id . '/';
+        $this->__path = $app->getServer()->container['DOCUMENT_ROOT'] . '/Fw/Components/' . $componentPath . '/Templates/' . $this->id . '/';
+        $this->__relativePath = '/Fw/Components/' . $componentPath . '/Templates/' . $this->id . '/';
     }
 
     public function render($page = 'template')

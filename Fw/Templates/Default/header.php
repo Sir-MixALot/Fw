@@ -25,7 +25,7 @@ if (!defined('FW_CORE_INCLUDED') || FW_CORE_INCLUDED !== true) die();
                     <a class="nav-link" href="#custom-list">List</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#form-123">Form</a>
+                    <a class="nav-link" href="#form">Form</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#report">Report</a>

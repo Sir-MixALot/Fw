@@ -2,9 +2,7 @@
 
 namespace Fw\Core;
 
-use DatePeriod;
-
-define('CONFIG', require_once('config.php'));
+define('CONFIG', require_once('Fw/config.php'));
 
 class Config
 {
