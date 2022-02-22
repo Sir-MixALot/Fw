@@ -12,7 +12,7 @@ $app->pager->addCss('/Fw/Templates/Default/style.css');
 $app->pager->addString('<title>Stage 2</title>');
 try{
     $app->includeComponent(
-        '\Fw\Components\Element:CustomList',
+        '\Fw\Components:CustomList',
         'default',
         [
             'List of somethings' => ['First item', 'Second item', 'Third item']
@@ -20,10 +20,11 @@ try{
     );
 
     $app->includeComponent(
-        '\Fw\Components\Interfaces:Form',
+        '\Fw\Components:Form',
         'default',
         [
-            'additional_class' => 'window--full-form', 
+            'additional_class' => 'window--full-form',
+            'id' => 'form',
             'attr' => [ 
                 'data-form-id' => 'form-123'
             ],

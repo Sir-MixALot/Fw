@@ -12,9 +12,11 @@ abstract class Base
     public $params = [];
     protected $template;
     public string $__path;
+    public $namespace;
 
     public function __construct($namespace, $componentId, $templateId, $params)
     {
+        $this->namespace = $namespace;
         $this->id = $componentId;
         $this->__path = str_replace('\\', '/', $namespace) . '/' . $this->id;
         $this->params = $params;

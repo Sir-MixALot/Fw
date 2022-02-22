@@ -11,8 +11,6 @@ class Template
     public string $__relativePath;
     public string $id;
     public $component;
-    public $cssPath;
-    public $jsPath;
     
     public function __construct($templateId, $componentPath, $componentObj)
     {
@@ -27,10 +25,7 @@ class Template
     public function render($page = 'template')
     {
         $result = $this->component->result;
-
-        $this->cssPath = glob($this->__path . '*.css');
-        $this->jsPath = glob($this->__path . '*.js');
-
+        $namespace = $this->component->namespace;
         $component = Page::getInstance();
 
         if(file_exists($this->__path . 'result_modifier.php')){
@@ -45,21 +40,12 @@ class Template
             include $this->__path . 'component_epilog.php';
         }
 
-        if(!empty($this->jsPath)){
-            $this->jsPath = explode('/', $this->jsPath[0]);
-
-            if(file_exists($this->__path . end($this->jsPath))){
-                $component->addJs($this->__relativePath . end($this->jsPath));
-            }
+        if(file_exists($this->__path . 'script.js')){
+            $component->addJs($this->__relativePath . 'script.js');
         }
 
-        if(!empty($this->cssPath)){
-            $this->cssPath = explode('/', $this->cssPath[0]);
-
-            if(file_exists($this->__path . end($this->cssPath))){
-                $component->addCss($this->__relativePath . end($this->cssPath));
-            }
+        if(file_exists($this->__path . 'style.css')){
+               $component->addCss($this->__relativePath . 'style.css');
         }
-        
     }
 }
