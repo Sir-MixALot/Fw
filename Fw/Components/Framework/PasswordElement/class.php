@@ -1,6 +1,6 @@
 <?php
 
-namespace Fw\Components\Interfaces\PasswordElement;
+namespace Fw\Components\Framework\PasswordElement;
 
 use Fw\Core\Component\Base;
 

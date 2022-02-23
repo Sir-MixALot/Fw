@@ -1,20 +1,20 @@
 <?php
 
-namespace Fw\Components\Interfaces\RadioElement;
+namespace Fw\Components\Framework\CheckboxElement;
 
 use Fw\Core\Component\Base;
 
-class RadioElement extends Base
+class CheckboxElement extends Base
 {
 
     public function executeComponent()
     {
-        foreach($this->params as $name => $param){
-            if($name != 'radios'){
+        foreach($this->params as $name=>$param){
+            if($name != 'boxes'){
                 $this->result['element'][$name] = $param;
             }else{
                 foreach($param as $elements){
-                    $this->result['radios'][] = $elements;
+                    $this->result['boxes'][] = $elements;
                 }
             }
         }

@@ -15,7 +15,7 @@ $app->pager->addCss('Fw/Templates/Default/style.css');
 $app->pager->addString('<title>Stage 2</title>');
 try{
     $app->includeComponent(
-        'ListComponent:CustomList',
+        'Framework:CustomList',
         'default',
         [
             'List of somethings' => ['First item', 'Second item', 'Third item']
@@ -23,7 +23,7 @@ try{
     );
 
     $app->includeComponent(
-        'Interfaces:Form',
+        'Framework:Form',
         'default',
         [
             'additional_class' => 'window--full-form',

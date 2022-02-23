@@ -1,20 +1,20 @@
 <?php
 
-namespace Fw\Components\Interfaces\MultipleTextElement;
+namespace Fw\Components\Framework\RadioElement;
 
 use Fw\Core\Component\Base;
 
-class MultipleTextElement extends Base
+class RadioElement extends Base
 {
 
     public function executeComponent()
     {
         foreach($this->params as $name => $param){
-            if($name != 'fields'){
+            if($name != 'radios'){
                 $this->result['element'][$name] = $param;
             }else{
                 foreach($param as $elements){
-                    $this->result['fields'][] = $elements;
+                    $this->result['radios'][] = $elements;
                 }
             }
         }

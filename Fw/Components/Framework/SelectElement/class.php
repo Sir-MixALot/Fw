@@ -1,6 +1,6 @@
 <?php
 
-namespace Fw\Components\Interfaces\SelectElement;
+namespace Fw\Components\Framework\SelectElement;
 
 use Fw\Core\Component\Base;
 

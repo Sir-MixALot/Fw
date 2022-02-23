@@ -1,6 +1,6 @@
 <?php
 
-namespace Fw\Components\CustomList;
+namespace Fw\Components\Framework\CustomList;
 
 use Fw\Core\Component\Base;
 

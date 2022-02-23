@@ -1,10 +1,10 @@
 <?php
 
-namespace Fw\Components\Interfaces\TextareaElement;
+namespace Fw\Components\Framework\NumberElement;
 
 use Fw\Core\Component\Base;
 
-class TextareaElement extends Base
+class NumberElement extends Base
 {
     public function executeComponent()
     {

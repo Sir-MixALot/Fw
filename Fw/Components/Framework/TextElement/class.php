@@ -1,11 +1,12 @@
 <?php
 
-namespace Fw\Components\Interfaces\NumberElement;
+namespace Fw\Components\Framework\TextElement;
 
 use Fw\Core\Component\Base;
 
-class NumberElement extends Base
+class TextElement extends Base
 {
+
     public function executeComponent()
     {
         $this->result = $this->params;

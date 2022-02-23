@@ -1,10 +1,10 @@
 <?php
 
-namespace Fw\Components\Interfaces\MultipleSelectElement;
+namespace Fw\Components\Framework\TextareaElement;
 
 use Fw\Core\Component\Base;
 
-class MultipleSelectElement extends Base
+class TextareaElement extends Base
 {
     public function executeComponent()
     {
