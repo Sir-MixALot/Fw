@@ -8,7 +8,6 @@ class Validator
     private $type;
     private $rule;
     private $validators = [];
-    private $result = true;
 
     public function __construct($type, $rule = null, $validators = [])
     {
@@ -28,8 +27,7 @@ class Validator
     private function chain($value)
     {
         foreach($this->validators as $key => $validator){
-            $this->validators[$key] = $validator->exec($value);
-            if($this->validators[$key] != $this->rule){
+            if($validator->exec($value) != $this->rule){
                 return false;
             }
         }
