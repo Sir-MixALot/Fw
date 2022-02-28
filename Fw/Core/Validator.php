@@ -8,9 +8,9 @@ class Validator
     private $type;
     private $rule;
     private $validators = [];
-    private $result = 'true';
+    private $result = true;
 
-    public function __construct($type, $rule, $validators)
+    public function __construct($type, $rule = null, $validators = [])
     {
        
         $this->type = $type;
@@ -29,41 +29,56 @@ class Validator
     {
         foreach($this->validators as $key => $validator){
             $this->validators[$key] = $validator->exec($value);
-        }
-
-        foreach($this->validators as $validator){
-            if($validator !== $this->rule){
-                $this->result = 'false';
+            if($this->validators[$key] != $this->rule){
+                $this->result = false;
             }
         }
-
+        
         return $this->result;
     }
 
     private function minLength($value)
     {
         if(strlen($value) >= $this->rule){
-            return 'true';
+            return true;
         }else{
-            return 'false';
+            return false;
         }
     }
 
     private function regexp($value)
     {
         if(preg_match($this->rule, $value)){
-            return 'true';
+            return true;
         }else{
-            return 'false';
+            return false;
         }
     }
 
     private function upperCase($value)
     {
         if(ctype_upper($value)){
-            return 'true';
+            return true;
         }else{
-            return 'false';
+            return false;
+        }
+    }
+
+    private function in($value)
+    {
+        if(in_array($value, $this->rule)){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    private function email($value)
+    {
+        if(filter_var($value, FILTER_VALIDATE_EMAIL)){
+            return true;
+        }else{
+            return false;
         }
     }
 
