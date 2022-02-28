@@ -1,0 +1,9 @@
+.list-group-item.active{
+    background-color: blueviolet;
+    border-color: blueviolet;
+}
+
+.container.list{
+    width: 60%;
+}
+

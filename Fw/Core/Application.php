@@ -76,9 +76,9 @@ class Application
         $componentInfo = explode(":", $component); 
         $namespace = $componentInfo[0]; 
         $id = $componentInfo[1];
-        if(!isset($this->__components[$component])){
+        if(!isset($this->__components['\Fw\Components\\' . $component])){
             $path = $namespace . "\\" . $id . "\\class";
-            $wholePath = ($this->getServer()->container['DOCUMENT_ROOT'] . str_replace("\\", "/", $path) . ".php");
+            $wholePath = ($this->getServer()->container['DOCUMENT_ROOT'] . '/Fw/Components/' . str_replace("\\", "/", $path) . ".php");
             $classesBeforeComponentConnection = get_declared_classes();
             
             if(file_exists($wholePath)){
@@ -95,15 +95,15 @@ class Application
 
                 foreach($componentAndBasePath as $componentPath){
                     if(get_parent_class($componentPath) == 'Fw\Core\Component\Base'){
-                        $this->__components[$component] = $componentPath;
+                        $this->__components['\Fw\Components\\' . $component] = $componentPath;
                         break;
                     }
                 }
             }
         }
 
-        if(get_parent_class($this->__components[$component]) == 'Fw\Core\Component\Base'){
-            $componentName = $this->__components[$component];
+        if(get_parent_class($this->__components['\Fw\Components\\' . $component]) == 'Fw\Core\Component\Base'){
+            $componentName = $this->__components['\Fw\Components\\' . $component];
         }
 
         $component = new $componentName($namespace ,$id, $template, $params);

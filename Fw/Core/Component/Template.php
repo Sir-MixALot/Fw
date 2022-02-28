@@ -12,18 +12,20 @@ class Template
     public string $id;
     public $component;
     
-    public function __construct($templateId, $componentPath, $componentObj){
+    public function __construct($templateId, $componentPath, $componentObj)
+    {
         $app = Application::getInstance();
+
         $this->component = $componentObj;
         $this->id = ucfirst($templateId);
-        $this->__path = $app->getServer()->container['DOCUMENT_ROOT'] . $componentPath . '/Templates/' . $this->id . '/';
-        $this->__relativePath = $componentPath . '/Templates/' . $this->id . '/';
+        $this->__path = $app->getServer()->container['DOCUMENT_ROOT'] . '/Fw/Components/' . $componentPath . '/Templates/' . $this->id . '/';
+        $this->__relativePath = '/Fw/Components/' . $componentPath . '/Templates/' . $this->id . '/';
     }
 
     public function render($page = 'template')
     {
         $result = $this->component->result;
-
+        $namespace = $this->component->namespace;
         $component = Page::getInstance();
 
         if(file_exists($this->__path . 'result_modifier.php')){
@@ -43,7 +45,7 @@ class Template
         }
 
         if(file_exists($this->__path . 'style.css')){
-            $component->addCss($this->__relativePath . 'style.css');
+               $component->addCss($this->__relativePath . 'style.css');
         }
     }
 }
