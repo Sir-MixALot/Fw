@@ -30,11 +30,11 @@ class Validator
         foreach($this->validators as $key => $validator){
             $this->validators[$key] = $validator->exec($value);
             if($this->validators[$key] != $this->rule){
-                $this->result = false;
+                return false;
             }
         }
-        
-        return $this->result;
+
+        return true;
     }
 
     private function minLength($value)
