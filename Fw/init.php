@@ -1,7 +1,6 @@
 <?php
 
 use Fw\Core\Application;
-use Fw\Core\Validator;
 
 define("FW_CORE_INCLUDED", true);
 
