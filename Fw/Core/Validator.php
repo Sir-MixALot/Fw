@@ -48,11 +48,7 @@ class Validator
 
     private function regexp($value)
     {
-        if(preg_match($this->rule, $value)){
-            return true;
-        }else{
-            return false;
-        }
+        return !!preg_match($this->rule, $value);
     }
 
     private function upperCase($value)
@@ -66,11 +62,7 @@ class Validator
 
     private function in($value)
     {
-        if(in_array($value, $this->rule)){
-            return true;
-        }else{
-            return false;
-        }
+        return in_array($value, $this->rule);
     }
 
     private function email($value)
